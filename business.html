@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>事業・プロダクト｜KITAI株式会社</title>
+  <meta name="description" content="KITAIが提供するマーケティング意思決定支援のためのサービスをご紹介します。現在提供中のInsightSprintと、今後取り組む領域について。" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="./index.html" aria-label="KITAI株式会社 トップへ">
+        <img class="brand__logo" src="./assets/logo/logo-h-black.png" alt="KITAI株式会社" width="140" height="22" loading="eager" decoding="async">
+      </a>
+      <nav class="navlinks" aria-label="Global navigation">
+        <a href="./business.html">事業・プロダクト</a>
+        <a href="./about.html">私たちについて</a>
+        <a href="./company.html">会社概要</a>
+        <a href="./contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="container">
+      <p class="kicker">Business & Products</p>
+      <h1 class="h1">事業・プロダクト</h1>
+      <p class="sub">
+        KITAIは、マーケティングの意思決定を前に進めるためのサービスを開発・提供しています。<br>
+        単一のツールに留まらず、調査・分析・判断のプロセス全体を見据えた設計と実装を行います。
+      </p>
+    </div>
+  </section>
+
+  <!-- 現在のサービス（白背景） -->
+  <section class="section-full">
+    <div class="container">
+      <h2 class="section-title">現在のサービス</h2>
+      <p class="section-desc">現時点で提供しているサービスです。</p>
+
+      <div class="card">
+        <h3>InsightSprint</h3>
+        <p>
+          マーケティングリサーチにおける調査設計から分析・示唆抽出までを支援するサービスです。<br>
+          スピードと確かさの両立を目指し、現場で使われる形に整えたプロセスとして提供します。
+        </p>
+
+        <!-- プロダクト画面 -->
+        <div class="product-visual">
+          <div class="product-visual__image">
+            <img src="./assets/images/insightsprint-screen.png" alt="InsightSprintの分析画面" loading="lazy">
+          </div>
+          <p class="product-visual__caption">InsightSprint 分析画面イメージ</p>
+        </div>
+
+        <div class="meta">
+          <a class="btn primary" href="https://insightsprint.jp/" target="_blank" rel="noopener">サービスサイトへ</a>
+          <a class="btn" href="./contact.html">相談する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ビジュアルブレイク -->
+  <div class="visual-break--line" aria-hidden="true"></div>
+
+  <!-- 今後の取り組み -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">今後の取り組み</h2>
+      <p class="section-desc">
+        具体的なサービス形態は段階的に検証・開発を進めながら、順次お伝えしていく予定です。
+      </p>
+
+      <div class="grid">
+        <div class="card two-col soft">
+          <h3>調査設計（上流工程）</h3>
+          <p>目的の定義や問いの設計など、意思決定の質を左右する上流工程に取り組んでいます。</p>
+        </div>
+        <div class="card two-col soft">
+          <h3>定性調査領域</h3>
+          <p>洞察を生むための探索・解釈のプロセスを、現場で使える形に拡張していきます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 引用（白背景） -->
+  <section class="section-full">
+    <div class="container">
+      <div class="card soft text-center">
+        <p class="quote" style="border-left:none; background:transparent; text-align:center; padding:8px 0;">
+          私たちは、AIを万能の答えとしてではなく、<br>現場で使われる「道具」として実装することを重視しています。
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="./index.html" aria-label="KITAI株式会社 トップへ">
+          <img class="brand__logo" src="./assets/logo/logo-h-black.png" alt="KITAI株式会社" width="140" height="22" loading="lazy" decoding="async">
+        </a>
+        <p style="margin-top:12px; margin-bottom:0;">マーケティングの意思決定を、より速く、より確かなものに。</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="./index.html">Top</a>
+        <a href="./about.html">About</a>
+        <a href="./company.html">会社概要</a>
+        <a href="./contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="copyright">© <span id="y"></span> KITAI Inc.</p>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

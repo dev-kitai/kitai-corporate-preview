@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>私たちについて｜KITAI株式会社</title>
+  <meta name="description" content="KITAIの考え方と背景をご紹介します。意思決定を前に進めるために、AIを道具として設計・実装するスタンスを大切にしています。" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="./index.html" aria-label="KITAI株式会社 トップへ">
+        <img class="brand__logo" src="./assets/logo/logo-h-black.png" alt="KITAI株式会社" width="140" height="22" loading="eager" decoding="async">
+      </a>
+      <nav class="navlinks" aria-label="Global navigation">
+        <a href="./business.html">事業・プロダクト</a>
+        <a href="./about.html">私たちについて</a>
+        <a href="./company.html">会社概要</a>
+        <a href="./contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <p class="kicker">About</p>
+    <h1 class="h1">私たちについて</h1>
+    <p class="sub">
+      KITAIは、マーケティングの意思決定をより速く、より確かなものにするためのサービスを開発・提供しています。<br>
+      重要なのは、AIそのものではなく「現場で使われる形」に落とし込む設計と実装だと考えています。
+    </p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">KITAIの考え方</h2>
+    <p class="section-desc">言葉は控えめに、設計は具体に。そんなスタンスでつくっています。</p>
+
+    <div class="grid">
+      <div class="card two-col">
+        <h3>判断を置き換えない</h3>
+        <p>AIに丸投げせず、人が判断できる形に整えることを優先します。</p>
+      </div>
+      <div class="card two-col">
+        <h3>現場の文脈を起点にする</h3>
+        <p>制約や暗黙知を含む現実から設計し、本質的なペインを外しません。</p>
+      </div>
+      <div class="card two-col">
+        <h3>仕組みにして積み上げる</h3>
+        <p>再利用できるコンポーネントとして実装し、継続的に速度と品質を上げます。</p>
+      </div>
+      <div class="card two-col">
+        <h3>止まらずに進化させる</h3>
+        <p>最速で社会に実装し、検証しながら改善を重ねます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">背景</h2>
+
+    <div class="card">
+      <p>
+        私たちは長年マーケティングの現場で仕事をしてきました。そこで何度も感じたのは、「意思決定に必要な情報は、いつも足りないか、遅すぎる」という現実です。
+      </p>
+      <p>
+        近年の生成AIの進化は、その構造を変えうる可能性を持っています。ただし重要なのは、AIを魔法として語ることではなく、現場で使える形に"設計して届ける"こと。
+      </p>
+      <p style="margin-bottom:0;">
+        KITAIは、AIを「答え」ではなく、意思決定を前に進めるための「道具（Kit）」として扱います。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card soft">
+      <p class="quote">
+        「KITAI」には、AIを道具（Kit）として扱う発想と、未来への"きっと（期待）"を込めています。
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">現在のプロダクト</h2>
+
+    <div class="card">
+      <h3>InsightSprint</h3>
+      <p style="margin-bottom:16px;">上記の考え方を最初に形にしたサービスです。詳しくはサービスサイトをご覧ください。</p>
+      <div class="meta">
+        <a class="btn primary" href="https://insightsprint.jp/" target="_blank" rel="noopener">サービスサイトへ</a>
+        <a class="btn" href="./business.html">事業・プロダクトを見る</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="./index.html" aria-label="KITAI株式会社 トップへ">
+          <img class="brand__logo" src="./assets/logo/logo-h-black.png" alt="KITAI株式会社" width="140" height="22" loading="lazy" decoding="async">
+        </a>
+        <p style="margin-top:12px; margin-bottom:0;">マーケティングの意思決定を、より速く、より確かなものに。</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="./index.html">Top</a>
+        <a href="./business.html">事業・プロダクト</a>
+        <a href="./company.html">会社概要</a>
+        <a href="./contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="copyright">© <span id="y"></span> KITAI Inc.</p>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
