@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KITAI株式会社 | 知能をKit化し、ビジネスをスプリントさせる。</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+        }
+        .vertical-rl {
+            writing-mode: vertical-rl;
+        }
+        .selection-cyan::selection {
+            background-color: #00F0FF;
+            color: #001A3D;
+        }
+        /* LITS-style grid animation hint */
+        .grid-line-anim {
+            background-size: 100px 100px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+        }
+        .nav-link-hover:hover .link-text-normal { transform: translateY(-100%); }
+        .nav-link-hover:hover .link-text-hover { transform: translateY(0); }
+        
+        /* Smooth state transitions */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-white text-[#1A1A1A] overflow-x-hidden selection-cyan">
+
+    <!-- Top Gradient Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-[#00F0FF] via-[#001A3D] to-[#00F0FF] z-[110]"></div>
+
+    <!-- Side Navigation (LITS Style) -->
+    <div class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden xl:flex flex-col items-center space-y-8">
+        <span class="text-[10px] font-black tracking-widest text-[#001A3D]/20 vertical-rl uppercase">Index</span>
+        <div id="side-nav" class="flex flex-col space-y-4">
+            <a href="#hero" data-section="01" class="side-nav-item group flex items-center transition-all duration-500 scale-125">
+                <span class="text-[10px] font-black mr-2 text-[#00F0FF]">01</span>
+                <div class="h-[1px] w-8 bg-[#00F0FF] transition-all duration-500"></div>
+            </a>
+            <a href="#about" data-section="02" class="side-nav-item group flex items-center opacity-30 hover:opacity-100 transition-all duration-500">
+                <span class="text-[10px] font-black mr-2 text-[#001A3D]">02</span>
+                <div class="h-[1px] w-4 bg-[#001A3D] transition-all duration-500"></div>
+            </a>
+            <a href="#products" data-section="03" class="side-nav-item group flex items-center opacity-30 hover:opacity-100 transition-all duration-500">
+                <span class="text-[10px] font-black mr-2 text-[#001A3D]">03</span>
+                <div class="h-[1px] w-4 bg-[#001A3D] transition-all duration-500"></div>
+            </a>
+            <a href="#mvv" data-section="04" class="side-nav-item group flex items-center opacity-30 hover:opacity-100 transition-all duration-500">
+                <span class="text-[10px] font-black mr-2 text-[#001A3D]">04</span>
+                <div class="h-[1px] w-4 bg-[#001A3D] transition-all duration-500"></div>
+            </a>
+            <a href="#contact" data-section="05" class="side-nav-item group flex items-center opacity-30 hover:opacity-100 transition-all duration-500">
+                <span class="text-[10px] font-black mr-2 text-[#001A3D]">05</span>
+                <div class="h-[1px] w-4 bg-[#001A3D] transition-all duration-500"></div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Global Header -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-[100] transition-all duration-700 py-8 bg-transparent">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#hero" class="flex items-center">
+                <img src="横　カラー.png" alt="KITAI" class="h-8 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="hidden text-2xl font-black tracking-tighter text-[#001A3D]">KITAI Inc.</span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-12">
+                <a href="#about" class="nav-link-hover group relative text-[11px] font-black tracking-[0.2em] uppercase overflow-hidden h-4">
+                    <span class="link-text-normal inline-block transition-transform duration-500">About</span>
+                    <span class="link-text-hover absolute top-0 left-0 inline-block transition-transform duration-500 translate-y-full text-[#00F0FF]">About</span>
+                </a>
+                <a href="#products" class="nav-link-hover group relative text-[11px] font-black tracking-[0.2em] uppercase overflow-hidden h-4">
+                    <span class="link-text-normal inline-block transition-transform duration-500">Products</span>
+                    <span class="link-text-hover absolute top-0 left-0 inline-block transition-transform duration-500 translate-y-full text-[#00F0FF]">Products</span>
+                </a>
+                <a href="#mvv" class="nav-link-hover group relative text-[11px] font-black tracking-[0.2em] uppercase overflow-hidden h-4">
+                    <span class="link-text-normal inline-block transition-transform duration-500">MVV</span>
+                    <span class="link-text-hover absolute top-0 left-0 inline-block transition-transform duration-500 translate-y-full text-[#00F0FF]">MVV</span>
+                </a>
+                <a href="#contact" class="nav-link-hover group relative text-[11px] font-black tracking-[0.2em] uppercase overflow-hidden h-4">
+                    <span class="link-text-normal inline-block transition-transform duration-500">Contact</span>
+                    <span class="link-text-hover absolute top-0 left-0 inline-block transition-transform duration-500 translate-y-full text-[#00F0FF]">Contact</span>
+                </a>
+            </nav>
+
+            <button id="menu-toggle" class="lg:hidden w-10 h-10 flex flex-col items-end justify-center space-y-1.5">
+                <div class="h-0.5 bg-[#001A3D] transition-all duration-500 w-8" id="bar1"></div>
+                <div class="h-0.5 bg-[#001A3D] transition-all duration-500 w-5" id="bar2"></div>
+                <div class="h-0.5 bg-[#001A3D] transition-all duration-500 w-3" id="bar3"></div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#001A3D] z-[90] transition-transform duration-700 translate-x-full flex flex-col px-12 justify-center">
+        <a href="#about" class="mobile-nav-item text-white text-5xl font-black mb-8 text-left flex items-start group">
+            <span class="text-xs text-[#00F0FF] mt-4 mr-4">02</span>
+            <span class="group-hover:translate-x-4 transition-transform duration-500">About</span>
+        </a>
+        <a href="#products" class="mobile-nav-item text-white text-5xl font-black mb-8 text-left flex items-start group">
+            <span class="text-xs text-[#00F0FF] mt-4 mr-4 text-left">03</span>
+            <span class="group-hover:translate-x-4 transition-transform duration-500">Products</span>
+        </a>
+        <a href="#mvv" class="mobile-nav-item text-white text-5xl font-black mb-8 text-left flex items-start group">
+            <span class="text-xs text-[#00F0FF] mt-4 mr-4">04</span>
+            <span class="group-hover:translate-x-4 transition-transform duration-500">MVV</span>
+        </a>
+        <a href="#contact" class="mobile-nav-item text-white text-5xl font-black mb-8 text-left flex items-start group">
+            <span class="text-xs text-[#00F0FF] mt-4 mr-4">05</span>
+            <span class="group-hover:translate-x-4 transition-transform duration-500">Contact</span>
+        </a>
+    </div>
+
+    <!-- Section 01: Hero -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+        <div class="absolute inset-0 flex">
+            <div class="w-1/2 h-full border-r border-gray-100 relative">
+                <div class="absolute inset-0 bg-gray-50 opacity-30"></div>
+            </div>
+            <div class="w-1/2 h-full"></div>
+        </div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-8 fade-in visible">
+                    <div class="inline-flex items-center space-x-4 mb-8">
+                        <i data-lucide="plus" class="text-[#00F0FF] w-4 h-4"></i>
+                        <span class="text-[10px] font-black tracking-[0.4em] uppercase text-gray-400">Marketing Technology Group</span>
+                    </div>
+                    <h1 class="text-6xl md:text-[8rem] font-black text-[#001A3D] leading-[0.85] tracking-tighter mb-12">
+                        BUSINESS<br>
+                        <span class="text-[#00F0FF]">SPRINT</span><br>
+                        WITH KIT.
+                    </h1>
+                    <div class="max-w-xl">
+                        <p class="text-xl md:text-2xl font-bold leading-tight mb-8">
+                            ビジネスを、スプリントさせる「Kit」を。
+                        </p>
+                        <p class="text-gray-500 leading-relaxed text-sm md:text-base">
+                            マーケティングの現場知と生成AIの融合。私たちは、思考のプロセスを構造化し、次世代のデファクトとなるプロダクトを実装するテクノロジー集団です。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 flex justify-end">
+                    <a href="#products" class="relative group cursor-pointer">
+                        <div class="w-48 h-48 md:w-64 md:h-64 rounded-full bg-[#001A3D] flex items-center justify-center transition-transform duration-700 group-hover:scale-105 shadow-2xl">
+                            <div class="absolute inset-0 border border-[#00F0FF] rounded-full scale-110 animate-ping opacity-20"></div>
+                            <div class="text-white text-center">
+                                <i data-lucide="arrow-up-right" class="mx-auto mb-2 text-[#00F0FF] w-12 h-12"></i>
+                                <span class="text-[10px] font-black tracking-widest uppercase">Explore Kit</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 02: About Us -->
+    <section id="about" class="py-24 md:py-48 bg-white border-t border-gray-100 relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-1 border-r border-gray-100 hidden lg:block">
+                    <span class="text-[10px] font-black tracking-widest text-gray-300 vertical-rl uppercase">02 About Philosophy</span>
+                </div>
+                <div class="lg:col-span-5 fade-in">
+                    <h2 class="text-5xl md:text-8xl font-black text-[#001A3D] leading-tight mb-12 tracking-tighter">
+                        現場知を、<br>
+                        構造化する。
+                    </h2>
+                </div>
+                <div class="lg:col-span-6 flex flex-col justify-end pb-4 fade-in">
+                    <div class="space-y-8">
+                        <p class="text-xl md:text-2xl font-bold leading-relaxed border-l-4 border-[#00F0FF] pl-8">
+                            私たちは、単にAIモデルを回すのではなく、現場の「熟練者の判断」や「文脈の読み取り」といった言語化されにくいプロセスを構造化することから始めます。
+                        </p>
+                        <p class="text-gray-500 leading-relaxed pl-9">
+                            解析、抽出、要約、生成。洗練された最小単位の機能を「Kit」として磨き上げ、これらを最適に組み合わせることで、高品質なプロダクトを圧倒的なスピードで実装します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-32 grid grid-cols-1 md:grid-cols-4 gap-0 border border-gray-100">
+                <div class="group p-12 border-r border-b md:border-b-0 border-gray-100 hover:bg-[#001A3D] transition-all duration-700 cursor-default">
+                    <div class="text-[#00F0FF] mb-12 transition-transform duration-500 group-hover:scale-125"><i data-lucide="activity"></i></div>
+                    <div class="mb-4 flex justify-between items-end">
+                        <h4 class="text-xl font-black group-hover:text-white transition-colors uppercase">Analyze</h4>
+                        <span class="text-[10px] font-black text-gray-300 group-hover:text-white/20">01</span>
+                    </div>
+                    <p class="text-xs text-gray-400 group-hover:text-white/60 leading-relaxed transition-colors">現場の暗黙知をデータから精緻に解析し、構造の核を特定。</p>
+                </div>
+                <div class="group p-12 border-r border-b md:border-b-0 border-gray-100 hover:bg-[#001A3D] transition-all duration-700 cursor-default">
+                    <div class="text-[#00F0FF] mb-12 transition-transform duration-500 group-hover:scale-125"><i data-lucide="layers"></i></div>
+                    <div class="mb-4 flex justify-between items-end">
+                        <h4 class="text-xl font-black group-hover:text-white transition-colors uppercase">Extract</h4>
+                        <span class="text-[10px] font-black text-gray-300 group-hover:text-white/20">02</span>
+                    </div>
+                    <p class="text-xs text-gray-400 group-hover:text-white/60 leading-relaxed transition-colors">複雑な文脈から、価値あるインサイトのみを純粋抽出。</p>
+                </div>
+                <div class="group p-12 border-r border-b md:border-b-0 border-gray-100 hover:bg-[#001A3D] transition-all duration-700 cursor-default">
+                    <div class="text-[#00F0FF] mb-12 transition-transform duration-500 group-hover:scale-125"><i data-lucide="cpu"></i></div>
+                    <div class="mb-4 flex justify-between items-end">
+                        <h4 class="text-xl font-black group-hover:text-white transition-colors uppercase">Summarize</h4>
+                        <span class="text-[10px] font-black text-gray-300 group-hover:text-white/20">03</span>
+                    </div>
+                    <p class="text-xs text-gray-400 group-hover:text-white/60 leading-relaxed transition-colors">膨大な情報を、意思決定に必要な形式へ一瞬で要約。</p>
+                </div>
+                <div class="group p-12 hover:bg-[#001A3D] transition-all duration-700 cursor-default">
+                    <div class="text-[#00F0FF] mb-12 transition-transform duration-500 group-hover:scale-125"><i data-lucide="zap"></i></div>
+                    <div class="mb-4 flex justify-between items-end">
+                        <h4 class="text-xl font-black group-hover:text-white transition-colors uppercase">Generate</h4>
+                        <span class="text-[10px] font-black text-gray-300 group-hover:text-white/20">04</span>
+                    </div>
+                    <p class="text-xs text-gray-400 group-hover:text-white/60 leading-relaxed transition-colors">構造化された知能をもとに、次なるアクションを生成。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03: Products -->
+    <section id="products" class="py-24 md:py-48 bg-[#F8FAFC]">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8 fade-in">
+                <h2 class="text-5xl md:text-[6rem] font-black text-[#001A3D] tracking-tighter leading-none">
+                    PRODUCT<br>
+                    PIPELINE
+                </h2>
+                <div class="md:text-right max-w-sm">
+                    <p class="text-xs font-black tracking-[0.3em] uppercase text-[#00F0FF] mb-4">Pipeline Roadmap</p>
+                    <p class="text-gray-500 text-sm">
+                        私たちは、「Kit」を基盤としたエコシステムを構築し、マーケティングの全工程をスプリントさせます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-12">
+                <div class="group relative bg-white border border-gray-100 p-8 md:p-16 overflow-hidden hover:border-[#00F0FF] transition-all duration-700 fade-in">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[#00F0FF] translate-x-16 -translate-y-16 rotate-45 group-hover:scale-110 transition-transform duration-700"></div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-1">
+                            <span class="text-4xl font-black text-gray-100 group-hover:text-[#00F0FF]/20 transition-colors italic tracking-tighter">01</span>
+                        </div>
+                        <div class="lg:col-span-4">
+                            <div class="inline-block px-3 py-1 bg-[#00F0FF]/10 text-[#00F0FF] text-[10px] font-black uppercase tracking-widest rounded-sm mb-4">Available</div>
+                            <h3 class="text-4xl md:text-5xl font-black text-[#001A3D]">InsightSprint</h3>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <p class="text-gray-500 leading-relaxed font-medium">定性リサーチを劇的に加速させる分析AI。調査の「常識」を塗り替える最初のKit。本質的な洞察を瞬時に構造化します。</p>
+                        </div>
+                        <div class="lg:col-span-2 flex justify-end">
+                            <div class="w-16 h-16 rounded-full border border-gray-100 flex items-center justify-center group-hover:bg-[#001A3D] transition-all duration-500">
+                                <i data-lucide="arrow-up-right" class="group-hover:text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-white/50 border border-transparent p-8 md:p-16 opacity-60 hover:opacity-100 transition-all duration-700 fade-in">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-1"><span class="text-4xl font-black text-gray-100 italic tracking-tighter">02</span></div>
+                        <div class="lg:col-span-4">
+                            <div class="inline-block px-3 py-1 border border-gray-200 text-gray-400 text-[10px] font-black uppercase tracking-widest rounded-sm mb-4">R&D / Coming Soon</div>
+                            <h3 class="text-4xl md:text-5xl font-black text-gray-300 group-hover:text-[#001A3D] transition-colors">AI Panel & Interview</h3>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <p class="text-gray-400 group-hover:text-gray-500 transition-colors">調査設計からAI回答者・AIモデレーターによる実査までの完全自動化。時間とコストの壁を越えます。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-white/50 border border-transparent p-8 md:p-16 opacity-60 hover:opacity-100 transition-all duration-700 fade-in">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-1"><span class="text-4xl font-black text-gray-100 italic tracking-tighter">03</span></div>
+                        <div class="lg:col-span-4">
+                            <div class="inline-block px-3 py-1 border border-gray-200 text-gray-400 text-[10px] font-black uppercase tracking-widest rounded-sm mb-4">Future Concept</div>
+                            <h3 class="text-4xl md:text-5xl font-black text-gray-300 group-hover:text-[#001A3D] transition-colors">Strategic Intelligence</h3>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <p class="text-gray-400 group-hover:text-gray-500 transition-colors">リサーチデータを基盤とした、マーケティング戦略策定の意思決定支援プロダクト。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04: MVV -->
+    <section id="mvv" class="py-24 md:py-48 bg-[#001A3D] text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5 pointer-events-none grid-line-anim"></div>
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="mb-32 fade-in">
+                <span class="text-[10px] font-black tracking-[0.5em] text-[#00F0FF] uppercase mb-8 block">Philosophy & Soul</span>
+                <h2 class="text-6xl md:text-[8rem] font-black tracking-tighter leading-[0.85] mb-12">
+                    CREATE<br>
+                    <span class="text-[#00F0FF]">DEFACTO.</span>
+                </h2>
+                <div class="h-[2px] w-24 bg-white"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="group cursor-default fade-in">
+                    <div class="flex items-center space-x-2 mb-6"><i data-lucide="plus" class="text-[#00F0FF] w-3 h-3"></i><span class="text-[10px] font-black uppercase text-white/40 group-hover:text-[#00F0FF]">Insight-Driven</span></div>
+                    <h4 class="text-2xl font-black mb-4 group-hover:translate-x-2 transition-transform duration-500">現場知への敬意</h4>
+                    <p class="text-sm text-white/40 group-hover:text-white/80 leading-relaxed transition-colors">技術の先行ではなく、現場の文脈や暗黙知を理解することから始める。</p>
+                </div>
+                <div class="group cursor-default fade-in">
+                    <div class="flex items-center space-x-2 mb-6"><i data-lucide="plus" class="text-[#00F0FF] w-3 h-3"></i><span class="text-[10px] font-black uppercase text-white/40 group-hover:text-[#00F0FF]">Modular Thinking</span></div>
+                    <h4 class="text-2xl font-black mb-4 group-hover:translate-x-2 transition-transform duration-500">構造化と再利用性</h4>
+                    <p class="text-sm text-white/40 group-hover:text-white/80 leading-relaxed transition-colors">仕組みを資産化（Kit化）することで、圧倒的な実装スピードを実現する。</p>
+                </div>
+                <div class="group cursor-default fade-in">
+                    <div class="flex items-center space-x-2 mb-6"><i data-lucide="plus" class="text-[#00F0FF] w-3 h-3"></i><span class="text-[10px] font-black uppercase text-white/40 group-hover:text-[#00F0FF]">Stay Sprint</span></div>
+                    <h4 class="text-2xl font-black mb-4 group-hover:translate-x-2 transition-transform duration-500">停滞を許さない</h4>
+                    <p class="text-sm text-white/40 group-hover:text-white/80 leading-relaxed transition-colors">変化の激しいAI時代において、スピードそのものを競争優位性とする。</p>
+                </div>
+                <div class="group cursor-default fade-in">
+                    <div class="flex items-center space-x-2 mb-6"><i data-lucide="plus" class="text-[#00F0FF] w-3 h-3"></i><span class="text-[10px] font-black uppercase text-white/40 group-hover:text-[#00F0FF]">Pure Expectation</span></div>
+                    <h4 class="text-2xl font-black mb-4 group-hover:translate-x-2 transition-transform duration-500">誠実な期待への応対</h4>
+                    <p class="text-sm text-white/40 group-hover:text-white/80 leading-relaxed transition-colors">「きっと良くなる」という期待に対し、技術と誠実さで応える。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: Contact -->
+    <section id="contact" class="py-24 md:py-48 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-5 fade-in">
+                    <span class="text-[10px] font-black tracking-[0.4em] text-[#00F0FF] uppercase mb-8 block">Connect with us</span>
+                    <h2 class="text-5xl md:text-8xl font-black text-[#001A3D] tracking-tighter leading-none mb-12">TALK TO<br>KITAI.</h2>
+                    <div class="space-y-12">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-[1px] bg-[#001A3D] mt-3"></div>
+                            <div>
+                                <h4 class="text-[10px] font-black tracking-widest uppercase text-gray-400 mb-2">Company Information</h4>
+                                <p class="font-black text-xl mb-1">KITAI株式会社 (KITAI Inc.)</p>
+                                <p class="text-sm text-gray-500 leading-relaxed">〒150-0043<br>東京都渋谷区道玄坂1丁目10番8号<br>渋谷道玄坂東急ビル2F−C</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-6">
+                            <a href="#" class="w-12 h-12 border border-gray-100 flex items-center justify-center hover:border-[#00F0FF] hover:text-[#00F0FF] transition-all duration-500"><i data-lucide="mail" class="w-4 h-4"></i></a>
+                            <a href="#" class="w-12 h-12 border border-gray-100 flex items-center justify-center hover:border-[#00F0FF] hover:text-[#00F0FF] transition-all duration-500 font-black text-xs uppercase">X</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-gray-50 p-8 md:p-16 border border-gray-100 fade-in">
+                    <form onsubmit="event.preventDefault(); this.innerHTML='<div class=\'text-center py-20\'><h3 class=\'text-3xl font-black mb-4\'>SUCCESS.</h3><p class=\'text-gray-500\'>メッセージが送信されました。担当者より追ってご連絡いたします。</p></div>'">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                            <div class="group">
+                                <label class="text-[10px] font-black tracking-widest uppercase text-gray-400 group-focus-within:text-[#00F0FF] transition-colors">Your Name</label>
+                                <input type="text" required class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#00F0FF] font-bold transition-all">
+                            </div>
+                            <div class="group">
+                                <label class="text-[10px] font-black tracking-widest uppercase text-gray-400 group-focus-within:text-[#00F0FF] transition-colors">Email Address</label>
+                                <input type="email" required class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#00F0FF] font-bold transition-all">
+                            </div>
+                        </div>
+                        <div class="group mb-12">
+                            <label class="text-[10px] font-black tracking-widest uppercase text-gray-400 group-focus-within:text-[#00F0FF] transition-colors">Organization</label>
+                            <input type="text" class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#00F0FF] font-bold transition-all">
+                        </div>
+                        <div class="group mb-12">
+                            <label class="text-[10px] font-black tracking-widest uppercase text-gray-400 group-focus-within:text-[#00F0FF] transition-colors">Message</label>
+                            <textarea rows="3" required class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#00F0FF] font-bold transition-all resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="group relative bg-[#001A3D] text-white px-12 py-6 rounded-sm overflow-hidden transition-all duration-700 hover:pr-16 w-full md:w-auto">
+                            <span class="relative z-10 text-[10px] font-black tracking-[0.4em] uppercase">Send Message</span>
+                            <div class="absolute inset-0 bg-[#00F0FF] translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                            <i data-lucide="arrow-up-right" class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-700 text-[#001A3D] z-20 w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center space-x-8">
+                <img src="横　カラー.png" alt="KITAI" class="h-6" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="hidden font-black text-sm tracking-tighter">KITAI Inc.</span>
+                <div class="hidden md:flex items-center space-x-6 text-[10px] font-black tracking-widest text-gray-300 uppercase">
+                    <a href="#about" class="hover:text-[#001A3D]">About</a>
+                    <a href="#products" class="hover:text-[#001A3D]">Products</a>
+                    <a href="#mvv" class="hover:text-[#001A3D]">MVV</a>
+                </div>
+            </div>
+            <div class="text-[10px] font-black tracking-widest text-gray-300 uppercase">
+                © <script>document.write(new Date().getFullYear())</script> KITAI株式会社.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const bar1 = document.getElementById('bar1');
+        const bar2 = document.getElementById('bar2');
+        const bar3 = document.getElementById('bar3');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-item');
+
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mobileMenu.style.transform = isMenuOpen ? 'translateX(0)' : 'translateX(100%)';
+            bar1.classList.toggle('-rotate-45', isMenuOpen);
+            bar1.classList.toggle('translate-y-2', isMenuOpen);
+            bar2.classList.toggle('opacity-0', isMenuOpen);
+            bar3.classList.toggle('rotate-45', isMenuOpen);
+            bar3.classList.toggle('-translate-y-2', isMenuOpen);
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Header Scroll Effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white/95', 'backdrop-blur-md', 'py-4', 'shadow-sm');
+                header.classList.remove('bg-transparent', 'py-8');
+            } else {
+                header.classList.remove('bg-white/95', 'backdrop-blur-md', 'py-4', 'shadow-sm');
+                header.classList.add('bg-transparent', 'py-8');
+            }
+        });
+
+        // Intersection Observer for Active Section Tracking
+        const sideNavItems = document.querySelectorAll('.side-nav-item');
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    const sectionMap = {
+                        'hero': '01',
+                        'about': '02',
+                        'products': '03',
+                        'mvv': '04',
+                        'contact': '05'
+                    };
+                    const activeNum = sectionMap[id];
+                    
+                    sideNavItems.forEach(item => {
+                        const itemNum = item.getAttribute('data-section');
+                        if (itemNum === activeNum) {
+                            item.classList.add('scale-125', 'opacity-100');
+                            item.classList.remove('opacity-30');
+                            item.querySelector('span').classList.add('text-[#00F0FF]');
+                            item.querySelector('span').classList.remove('text-[#001A3D]');
+                            item.querySelector('div').classList.add('w-8', 'bg-[#00F0FF]');
+                            item.querySelector('div').classList.remove('w-4', 'bg-[#001A3D]');
+                        } else {
+                            item.classList.remove('scale-125', 'opacity-100');
+                            item.classList.add('opacity-30');
+                            item.querySelector('span').classList.remove('text-[#00F0FF]');
+                            item.querySelector('span').classList.add('text-[#001A3D]');
+                            item.querySelector('div').classList.remove('w-8', 'bg-[#00F0FF]');
+                            item.querySelector('div').classList.add('w-4', 'bg-[#001A3D]');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+        // Reveal Animation on Scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
