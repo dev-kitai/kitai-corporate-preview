@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KITAI コーポレートサイト C/P/Q比較</title>
+  <title>KITAI コーポレートサイト A/C/P比較</title>
   <style>
     * {
       box-sizing: border-box;
@@ -89,14 +89,14 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
+    .panel--a .panel-label {
+      color: #7c3aed;
+    }
     .panel--c .panel-label {
       color: #059669;
     }
     .panel--p .panel-label {
       color: #0369a1;
-    }
-    .panel--q .panel-label {
-      color: #b45309;
     }
     .panel-desc {
       font-size: 11px;
@@ -139,14 +139,14 @@
       height: 10px;
       border-radius: 50%;
     }
+    .legend-dot--a { background: #7c3aed; }
     .legend-dot--c { background: #059669; }
     .legend-dot--p { background: #0369a1; }
-    .legend-dot--q { background: #b45309; }
   </style>
 </head>
 <body>
   <header class="header">
-    <h1>KITAI Corporate Site - C/P/Q Comparison</h1>
+    <h1>KITAI Corporate Site - A/C/P Comparison</h1>
     <div class="page-switcher">
       <button class="active" data-page="index.html">Top</button>
       <button data-page="business.html">Business</button>
@@ -156,6 +156,10 @@
 
   <div class="legend">
     <div class="legend-item">
+      <span class="legend-dot legend-dot--a"></span>
+      <span><strong>A案</strong>：思想重視・静かなトーン（将来の到達点）</span>
+    </div>
+    <div class="legend-item">
       <span class="legend-dot legend-dot--c"></span>
       <span><strong>C案</strong>：AI × 誠実（折衷型・現行基準点）</span>
     </div>
@@ -163,13 +167,16 @@
       <span class="legend-dot legend-dot--p"></span>
       <span><strong>P案</strong>：品質主語 × AI裏方（大手企業・稟議向け）</span>
     </div>
-    <div class="legend-item">
-      <span class="legend-dot legend-dot--q"></span>
-      <span><strong>Q案</strong>：プロセス再構築 × 解放（共感・思想性重視）</span>
-    </div>
   </div>
 
   <main class="main">
+    <div class="panel panel--a">
+      <div class="panel-header">
+        <span class="panel-label">A案（将来）</span>
+        <span class="panel-desc">思想重視・余白と誠実さ<br>ブランド戦略の最終到達点</span>
+      </div>
+      <iframe id="frame-a" class="panel-frame" src="../kitai-corp/index.html"></iframe>
+    </div>
     <div class="panel panel--c">
       <div class="panel-header">
         <span class="panel-label">C案（基準点）</span>
@@ -184,13 +191,6 @@
       </div>
       <iframe id="frame-p" class="panel-frame" src="../kitai-corp-versionP/index.html"></iframe>
     </div>
-    <div class="panel panel--q">
-      <div class="panel-header">
-        <span class="panel-label">Q案（解放）</span>
-        <span class="panel-desc">プロセス再構築 × 解放<br>「マーケティングを、意思決定の仕事に取り戻す。」</span>
-      </div>
-      <iframe id="frame-q" class="panel-frame" src="../kitai-corp-versionQ/index.html"></iframe>
-    </div>
   </main>
 
   <footer class="footer">
@@ -199,9 +199,9 @@
 
   <script>
     const buttons = document.querySelectorAll('.page-switcher button');
+    const frameA = document.getElementById('frame-a');
     const frameC = document.getElementById('frame-c');
     const frameP = document.getElementById('frame-p');
-    const frameQ = document.getElementById('frame-q');
 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -211,9 +211,9 @@
 
         // ページ切り替え
         const page = btn.dataset.page;
+        frameA.src = '../kitai-corp/' + page;
         frameC.src = '../kitai-corp-versionC/' + page;
         frameP.src = '../kitai-corp-versionP/' + page;
-        frameQ.src = '../kitai-corp-versionQ/' + page;
       });
     });
   </script>
