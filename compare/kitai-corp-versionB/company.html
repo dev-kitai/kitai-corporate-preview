@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>会社概要｜KITAI株式会社</title>
+  <meta name="description" content="KITAI株式会社の会社概要、事業内容、所在地などの基本情報をご紹介します。" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <style>
+    .info-table{
+      width:100%;
+      border-collapse:collapse;
+    }
+    .info-table tr{
+      border-bottom:1px solid var(--line);
+    }
+    .info-table tr:last-child{
+      border-bottom:none;
+    }
+    .info-table th,
+    .info-table td{
+      padding:16px 0;
+      text-align:left;
+      vertical-align:top;
+      font-weight:normal;
+    }
+    .info-table th{
+      width:120px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .info-table td{
+      color:var(--fg);
+    }
+    @media (max-width:600px){
+      .info-table th,
+      .info-table td{
+        display:block;
+        padding:8px 0;
+      }
+      .info-table th{
+        padding-bottom:0;
+      }
+      .info-table tr{
+        padding:12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="./index.html" aria-label="KITAI株式会社 トップへ">
+        <img class="brand__logo" src="./assets/logo/logo-h-black.png" alt="KITAI株式会社" width="140" height="22" loading="eager" decoding="async">
+      </a>
+      <nav class="navlinks" aria-label="Global navigation">
+        <a href="./business.html">事業・プロダクト</a>
+        <a href="./about.html">私たちについて</a>
+        <a href="./company.html">会社概要</a>
+        <a href="./contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <p class="kicker">Company</p>
+    <h1 class="h1">会社概要</h1>
+    <p class="sub">基本情報をご案内します。</p>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <table class="info-table">
+        <tr>
+          <th>会社名</th>
+          <td>KITAI株式会社</td>
+        </tr>
+        <tr>
+          <th>設立</th>
+          <td>2023年11月21日</td>
+        </tr>
+        <tr>
+          <th>代表者</th>
+          <td>代表取締役　高橋憲二</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>
+            〒150-0043<br>
+            東京都渋谷区道玄坂1丁目10番8号<br>
+            渋谷道玄坂東急ビル2F−C
+          </td>
+        </tr>
+        <tr>
+          <th>連絡先</th>
+          <td><a href="mailto:contact@kit-ai.co.jp">contact@kit-ai.co.jp</a></td>
+        </tr>
+        <tr>
+          <th>事業内容</th>
+          <td>
+            マーケティング領域における意思決定支援サービスの開発・提供。<br>
+            テクノロジーを「答え」ではなく、現場で使われる「道具」として実装することを重視しています。
+          </td>
+        </tr>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="./index.html" aria-label="KITAI株式会社 トップへ">
+          <img class="brand__logo" src="./assets/logo/logo-h-black.png" alt="KITAI株式会社" width="140" height="22" loading="lazy" decoding="async">
+        </a>
+        <p style="margin-top:12px; margin-bottom:0;">マーケティングの意思決定を、より速く、より確かなものに。</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="./index.html">Top</a>
+        <a href="./business.html">事業・プロダクト</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="copyright">© <span id="y"></span> KITAI Inc.</p>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
