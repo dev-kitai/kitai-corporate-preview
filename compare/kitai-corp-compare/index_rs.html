@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KITAI コーポレートサイト R/S比較</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      background: #f5f5f4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ヘッダー */
+    .header {
+      background: #1c1917;
+      color: #fff;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .header h1 {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .page-switcher {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .page-switcher button {
+      background: transparent;
+      border: 1px solid #57534e;
+      color: #a8a29e;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .page-switcher button:hover {
+      border-color: #a8a29e;
+      color: #fff;
+    }
+    .page-switcher button.active {
+      background: #fff;
+      border-color: #fff;
+      color: #1c1917;
+    }
+
+    /* メインコンテンツ */
+    .main {
+      flex: 1;
+      display: flex;
+      gap: 2px;
+      background: #e7e5e4;
+    }
+
+    /* 各パネル */
+    .panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      min-width: 0;
+    }
+    .panel-header {
+      background: #fafaf9;
+      border-bottom: 1px solid #e7e5e4;
+      padding: 10px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .panel-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .panel--r .panel-label {
+      color: #dc2626;
+    }
+    .panel--s .panel-label {
+      color: #7c3aed;
+    }
+    .panel-desc {
+      font-size: 11px;
+      color: #78716c;
+      line-height: 1.5;
+    }
+    .panel-frame {
+      flex: 1;
+      border: none;
+      width: 100%;
+      background: #fff;
+    }
+
+    /* フッター */
+    .footer {
+      background: #1c1917;
+      color: #78716c;
+      padding: 12px 24px;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    /* レジェンド */
+    .legend {
+      background: #fafaf9;
+      border-bottom: 1px solid #e7e5e4;
+      padding: 12px 24px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .legend-dot--r { background: #dc2626; }
+    .legend-dot--s { background: #7c3aed; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>KITAI Corporate Site - R/S Comparison</h1>
+    <div class="page-switcher">
+      <button class="active" data-page="index.html">Top</button>
+      <button data-page="business.html">Business</button>
+      <button data-page="about.html">About</button>
+    </div>
+  </header>
+
+  <div class="legend">
+    <div class="legend-item">
+      <span class="legend-dot legend-dot--r"></span>
+      <span><strong>R案</strong>：破壊案（インパクト最大・戦術用）</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot legend-dot--s"></span>
+      <span><strong>S案</strong>：アップデート案（知的・誠実・戦略用）</span>
+    </div>
+  </div>
+
+  <main class="main">
+    <div class="panel panel--r">
+      <div class="panel-header">
+        <span class="panel-label">R案（破壊）</span>
+        <span class="panel-desc">インパクト最大・戦術用<br>「マーケティングの常識を、AIで破壊する。」</span>
+      </div>
+      <iframe id="frame-r" class="panel-frame" src="../kitai-corp-versionR/index.html"></iframe>
+    </div>
+    <div class="panel panel--s">
+      <div class="panel-header">
+        <span class="panel-label">S案（アップデート）</span>
+        <span class="panel-desc">知的・誠実・戦略用<br>「マーケティングの常識を、AIでアップデートする。」</span>
+      </div>
+      <iframe id="frame-s" class="panel-frame" src="../kitai-corp-versionS/index.html"></iframe>
+    </div>
+  </main>
+
+  <footer class="footer">
+    ローカルサーバー経由での閲覧を推奨（例: npx serve . / python -m http.server）
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.page-switcher button');
+    const frameR = document.getElementById('frame-r');
+    const frameS = document.getElementById('frame-s');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // アクティブ状態の切り替え
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // ページ切り替え
+        const page = btn.dataset.page;
+        frameR.src = '../kitai-corp-versionR/' + page;
+        frameS.src = '../kitai-corp-versionS/' + page;
+      });
+    });
+  </script>
+</body>
+</html>
