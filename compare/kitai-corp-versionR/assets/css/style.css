@@ -13,6 +13,19 @@
 
   --max:720px;
   --max-wide:960px;
+
+  /* section spacing scale */
+  --space-section-lg: 96px;
+  --space-section-md: 72px;
+  --space-section-sm: 48px;
+}
+
+@media (max-width: 768px){
+  :root{
+    --space-section-lg: 72px;
+    --space-section-md: 56px;
+    --space-section-sm: 36px;
+  }
 }
 
 *{box-sizing:border-box}
@@ -217,8 +230,12 @@ header{
 
 /* セクション */
 .section{
-  padding:64px 0;
+  padding-block: var(--space-section-md);
 }
+.section--lg{ padding-block: var(--space-section-lg); }
+.section--md{ padding-block: var(--space-section-md); }
+.section--sm{ padding-block: var(--space-section-sm); }
+.section > *:last-child{ margin-bottom: 0; }
 .section-title{
   font-size:16px;
   font-weight:600;
@@ -411,8 +428,13 @@ textarea{
 /* フルブリードセクション（コンテナ幅を超える背景） */
 .section-full{
   background:var(--bg-pure);
-  padding:72px 24px;
+  padding-block: var(--space-section-md);
+  padding-inline: 24px;
 }
+.section-full--lg{ padding-block: var(--space-section-lg); }
+.section-full--md{ padding-block: var(--space-section-md); }
+.section-full--sm{ padding-block: var(--space-section-sm); }
+.section-full > *:last-child{ margin-bottom: 0; }
 
 /* ========================================
    ビジュアルブレイク（セクション間の"間"）
